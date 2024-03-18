@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版本作为运行环境
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # 检出代码到工作目录
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2  # 设置 Java 环境
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml  # 使用 Maven 构建项目
+
+    - name: Run unit tests
+      run: mvn test  # 运行单元测试
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
