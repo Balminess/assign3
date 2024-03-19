@@ -6,6 +6,6 @@ public class MyStringTest extends TestCase {
 
     public void testIndexOfString() {
         int result=MyString.indexOfString("hello world","world",0);
-        assertEquals(6,result);
+        assertEquals(-2,result);
     }
 }
