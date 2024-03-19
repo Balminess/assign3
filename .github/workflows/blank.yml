@@ -33,7 +33,7 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
 
     - name: Run unit tests
-      run: mvn test 
+      run: mvn test clean
 
 
         
