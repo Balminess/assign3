@@ -24,6 +24,10 @@ jobs:
 
     - name: Set up JDK
       uses: actions/setup-java@v2  # 设置 Java 环境
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        architecture: x64
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml  # 使用 Maven 构建项目
